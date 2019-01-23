@@ -23,3 +23,16 @@ role :db,  "your slave db-server here"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+namespace :maintenance do
+  desc 'Turn ON maintenance mode'
+  task :on do
+    puts "Make #{fetch(:application)} maintenance ON"
+  end
+
+  desc 'Turn off maintenance mode'
+  task :off do
+    puts "Bye maintenance"
+    puts "Make #{fetch(:application)} maintenance off"
+  end
+end
