@@ -1,3 +1,20 @@
+# frozen_string_literal: true
+
+module Stage
+  DEV = 'dev'
+  STAGING = 'staging'
+  PRODUCTION = 'production'
+
+  def self.all
+    [DEV, STAGING, PRODUCTION]
+  end
+end
+
+set :stages, Stage.all
+set :default_stage, Stage::STAGING
+
+require 'capistrano/ext/multistage'
+
 set :application, "set your application name here"
 set :repository,  "set your repository location here"
 
